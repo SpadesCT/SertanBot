@@ -1,0 +1,42 @@
+const Discord = require("discord.js");
+exports.run = (client, message) => {
+  let member = message.guild.member
+  var camera = message.guild.roles.find('name', "Camera");
+  var transform = message.guild.roles.find('name', "Transfom");
+  var position = message.guild.roles.find('name', "Position");
+  var members = message.guild.roles.find('name', "Members");
+  let args = message.content.split(' ').slice(1).join(' ');
+  if (!args) return message.channel.send("Please specify an argument.")
+  if (args === "members") {
+    try {
+      message.member.addRole(members)
+      message.reply("Done 👌")
+    } catch (err) {
+      message.channel.send('I can\'t find the Members role.')
+    }
+  }
+  if (args === "camera") {
+    try {
+      message.member.addRole(camera)
+      message.reply("Done 👌")
+    } catch (err) {
+      message.channel.send('I can\'t find the Camera role.')
+    }
+  }
+  if (args === "transform") {
+    try {
+      message.member.addRole(transform)
+      message.reply("Done 👌")
+    } catch (err) {
+      message.channel.send('I can\'t find the Transform role.')
+    }
+  }
+  if (args === "position") {
+    try {
+      message.member.addRole(position)
+      message.reply("Done 👌")
+    } catch (err) {
+      message.channel.send('I can\'t find the Position role.')
+    }
+  }
+}
